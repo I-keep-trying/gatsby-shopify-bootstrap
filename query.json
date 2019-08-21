@@ -1,0 +1,13 @@
+{"query":"fragment VariantFragment on ProductVariant  
+    { id,title,price,priceV2 { amount,currencyCode },
+    presentmentPrices (first: 20) { pageInfo { hasNextPage,hasPreviousPage },
+    edges { node { price { amount,currencyCode } } } },
+    weight,available: availableForSale,sku,compareAtPrice,compareAtPriceV2 
+    { amount,currencyCode },image { id,src: originalSrc,altText },
+    selectedOptions { name,value } },fragment ProductFragment on Product  
+    { id,availableForSale,createdAt,updatedAt,descriptionHtml,description,handle,productType,title,vendor,publishedAt,onlineStoreUrl,options 
+        { id,name,values },images (first: 250) { pageInfo { hasNextPage,hasPreviousPage },
+        edges { cursor,node { id,src,altText } } },variants (first: 250) 
+        { pageInfo { hasNextPage,hasPreviousPage },edges { cursor,node { ...VariantFragment } } } },
+        query ($id:ID!)  { node (id: $id) { __typename,...ProductFragment } }",
+"variables":{"id":"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzMxNTMxODM1MDY1MTM="}}
