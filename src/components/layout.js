@@ -1,7 +1,10 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
+
 import { Container, Row, Col } from "react-bootstrap"
+
 import Header from "./header"
+import Footer from "./footer"
 import Navbar from "./navBar"
 
 const Layout = ({ children, pageInfo }) => (
@@ -11,7 +14,6 @@ const Layout = ({ children, pageInfo }) => (
         site {
           siteMetadata {
             title
-            logos
           }
         }
       }
@@ -36,15 +38,7 @@ const Layout = ({ children, pageInfo }) => (
         <Container fluid className="px-0">
           <Row noGutters>
             <Col className="footer-col">
-              <footer>
-                <span>
-                  © {new Date().getFullYear()}<p align="center">
-  <a href="https://www.gatsbyjs.org">
-
-  </a>
-</p>
-                </span>
-              </footer>
+              <Footer />
             </Col>
           </Row>
         </Container>
@@ -54,4 +48,3 @@ const Layout = ({ children, pageInfo }) => (
 )
 
 export default Layout
-

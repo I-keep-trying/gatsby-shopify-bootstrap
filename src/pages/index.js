@@ -1,11 +1,11 @@
 import React from "react"
 import { Row, Col, Container, ListGroup } from "react-bootstrap"
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+//import { graphql } from 'gatsby';
+//import Img from 'gatsby-image';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+const IndexPage = (data) => (
   <Layout pageInfo={{ pageName: "index" }}>
     <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
     <Container className="text-center">
@@ -62,7 +62,6 @@ const IndexPage = () => (
             For more documentation on these packages and how they work, please
             refer to the pages linked in the list above.
           </p>
-          <Img fluid={props.data.imageOne.childImageSharp.fluid} />
         </Col>
       </Row>
     </Container>
@@ -71,14 +70,3 @@ const IndexPage = () => (
 
 export default IndexPage
 
-export const pageQuery = graphql`
-  query {
-    imageOne: file(relativePath: { eq: "../images/shopify+gatsby.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
