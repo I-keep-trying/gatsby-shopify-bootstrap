@@ -1,9 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import HeaderImage from '../components/header-image';
 
 export default ({ data }) => (
   <section>
+        <HeaderImage />
     <Img
       fluid={data.file.childImageSharp.fluid}
       alt="This is a picture of my face."
@@ -14,15 +16,3 @@ export default ({ data }) => (
     </div>
   </section>
 )
-
-export const query = graphql`
-  query {
-    fileName: file(relativePath: { eq: "logos.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 400, maxHeight: 250) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
